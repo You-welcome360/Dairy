@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Love 💌</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300&display=swap">
+  <style>
+    /* === ROMANTIC INTRO === */
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .intro {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ffd6e7 0%, #ffb3d9 50%, #c86fc9 100%);
+      text-align: center;
+      cursor: pointer;
+      color: #5a2d4e;
+      transition: all 0.5s ease;
+    }
+    
+    .envelope {
+      width: 120px;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+      animation: float 3s ease-in-out infinite, pulse 2s ease-in-out infinite alternate;
+    }
+    
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
+      margin: 20px 0 10px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    p {
+      font-size: 1.2rem;
+      max-width: 80%;
+      line-height: 1.6;
+    }
+    
+    .hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    
+    /* Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    
+    @keyframes pulse {
+      from { opacity: 0.9; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1.05); }
+    }
+    
+    /* === ROMANTIC LOGIN === */
+    .login {
+      display: none;
+      max-width: 350px;
+      margin: 0 auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .lock-icon {
+      width: 60px;
+      opacity: 0.8;
+    }
+    
+    h2 {
+      font-family: 'Dancing Script', cursive;
+      color: #c86fc9;
+      margin: 15px 0;
+    }
+    
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 2px solid #e6b3cc;
+      border-radius: 12px;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+    
+    input:focus {
+      border-color: #c86fc9;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(200, 111, 201, 0.2);
+    }
+    
+    button {
+      background: linear-gradient(to right, #ff6b8b, #c86fc9);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(200, 111, 201, 0.3);
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(200, 111, 201, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating Hearts Background -->
+  <div class="hearts" id="hearts"></div>
+
+  <!-- Romantic Intro -->
+  <div class="intro" id="intro">
+    <img src="main/assets/white-with-red-blue-lines-envelope-design_1095-114.png" class="envelope">
+    <h1>For My Dearest Grace</h1>
+    <h4>Happy Birthday</h4>
+    <p>A treasure of memories, whispered dreams, and all the love my heart holds...</p>
+    <p>Click to open this gift from Raymond</p>
+  </div>
+
+  <!-- Elegant Login -->
+  <div class="login" id="login">
+    <img src="main/assets/pad.png" class="lock-icon" alt="Lock">
+    <h2>This Sacred Diary Belongs To</h2>
+    <input type="text" value="Grace Sackey" readonly>
+    <input type="password" id="password" placeholder="Enter the key to my heart...">
+    <button onclick="checkPassword()">Unlock </button>
+  </div>
+
+  <script>
+    // 1. Animated Hearts Background
+    function createHearts() {
+      const hearts = document.getElementById('hearts');
+      for (let i = 0; i < 15; i++) {
+        const heart = document.createElement('div');
+        heart.innerHTML = '❤️';
+        heart.style.position = 'absolute';
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.style.top = `${Math.random() * 100}vh`;
+        heart.style.fontSize = `${Math.random() * 20 + 10}px`;
+        heart.style.opacity = Math.random() * 0.5 + 0.1;
+        heart.style.animation = `floatHeart ${Math.random() * 10 + 10}s linear infinite`;
+        hearts.appendChild(heart);
+      }
+      
+      // Add to styles
+      const style = document.createElement('style');
+      style.innerHTML = `
+        @keyframes floatHeart {
+          0% { transform: translateY(0) rotate(0deg); }
+          100% { transform: translateY(-100vh) rotate(360deg); }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+    
+    // 2. Click Envelope to Reveal Login
+    document.getElementById('intro').addEventListener('click', () => {
+      document.getElementById('intro').style.opacity = '0';
+      setTimeout(() => {
+        document.getElementById('intro').style.display = 'none';
+        document.getElementById('login').style.display = 'block';
+        document.getElementById('login').style.animation = 'fadeIn 1s ease';
+      }, 500);
+    });
+
+    // 3. Password Check (Our special code: SofoMoko)
+    function checkPassword() {
+      const password = document.getElementById('password').value;
+      if (password === "SofoMoko") {
+        // Romantic redirection
+        document.body.style.background = "#ff6b8b";
+        document.getElementById('login').innerHTML = `
+          <h2>Welcome Back Dear</h2>
+          <p>Opening your diary...</p>
+        `;
+        setTimeout(() => window.location.href = "main/diary1.html", 1500);
+      } else {
+        alert("Darling, try again... \nHint: Our secret place ❤️");
+      }
+    }
+
+    // Initialize
+    createHearts();
+  </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grace's Secret Diary 💖</title>
+  <!-- Add kawaii-friendly fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+  <!-- Landing Page with Video Carousel -->
+  <div id="landing-page">
+    <div class="kawaii-overlay"></div>
+    
+    <!-- Video carousel container -->
+    <div class="video-carousel">
+      <div class="video-container active">
+        <video src="assets/g1.mp4" autoplay muted loop></video>
+      </div>
+      <div class="video-container">
+        <video src="assets/g2.mp4" muted loop></video>
+      </div>
+      <div class="video-container">
+        <video src="assets/g3.mp4" muted loop></video>
+      </div>
+      <div class="video-container">
+        <video src="assets/g4.mp4" muted loop></video>
+      </div>
+      
+      <!-- Carousel navigation -->
+      <div class="carousel-nav">
+        <div class="nav-btn active" data-index="0">🌸</div>
+        <div class="nav-btn" data-index="1">🌈</div>
+        <div class="nav-btn" data-index="2">🌟</div>
+        <div class="nav-btn" data-index="3">💕</div>
+      </div>
+    </div>
+    
+    <div class="landing-content">
+      <h1 class="landing-title">Welcome to Grace's Diary</h1>
+      <p class="landing-subtitle">✨ Your special place for memories ✨</p>
+      
+      <!-- Kawaii animated mascots -->
+      <div class="kawaii-mascots">
+        <div class="mascot bunny">🐰</div>
+        <div class="mascot cat">🐱</div>
+        <div class="mascot star">⭐</div>
+        <div class="mascot heart">💗</div>
+      </div>
+      
+      <button id="enter-diary-btn">Enter My Diary 💖</button>
+    </div>
+    
+    <!-- Floating kawaii elements -->
+    <div class="floating-elements">
+      <div class="float-element" style="animation-delay: 0s;">🌸</div>
+      <div class="float-element" style="animation-delay: 2s;">💕</div>
+      <div class="float-element" style="animation-delay: 4s;">✨</div>
+      <div class="float-element" style="animation-delay: 1s;">🌈</div>
+      <div class="float-element" style="animation-delay: 3s;">🌟</div>
+      <div class="float-element" style="animation-delay: 5s;">🍭</div>
+      <div class="float-element" style="animation-delay: 0.5s;">🎀</div>
+      <div class="float-element" style="animation-delay: 2.5s;">🧸</div>
+    </div>
+  </div>
+  
+  <!-- Original Diary Page (Initially Hidden) -->
+  <div id="diary-page" style="display: none;">
+    <div class="container">
+      <header>
+        <h1>Grace Sackey's Diary 🌸</h1>
+        <p class="subtitle">Every moment of yours is precious. ✨</p>
+      </header>
+      <!-- Rainbow separator will be added by JS -->
+
+      <div class="diary-content">
+        <!-- Date Display with cloud bubble style -->
+        <div class="date" id="date"></div>
+        
+        <!-- Mood Selector (for today's entry) -->
+        <div class="mood-selector">
+          <p>How are you today? <span class="kawaii-text">choose a mood!</span></p>
+          <div class="moods">
+            <span data-mood="happy">😊</span>
+            <span data-mood="loved">🥰</span>
+            <span data-mood="sad">😢</span>
+            <span data-mood="angry">😠</span>
+            <span data-mood="tired">😴</span>
+          </div>
+        </div>
+
+        <!-- Diary Textarea with kawaii styling -->
+        <textarea id="diaryEntry" placeholder="Dear diary, today..."></textarea>
+        
+        <!-- Save Button with kawaii style -->
+        <button id="saveBtn">Save Entry 💝</button>
+      </div>
+
+      <!-- Past Entries Section -->
+      <div class="past-entries">
+        <h3>Your Memories 📖</h3>
+        <div id="entriesList"></div>
+      </div>
+    </div>
+
+    <!-- Hidden Memories Sidebar - moved outside container for better positioning -->
+    <button id="memoriesToggle">💖</button>
+    <div id="memoriesSidebar">
+      <h3>For Grace's Eyes Only ✨</h3>
+      <div class="memory">
+        <img src="assets/nami.jpg" alt="Our memory">
+        <p>I always got your back</p>
+      </div>
+      <div class="memory">
+        <img src="assets/luxmi.jpeg" alt="Another memory">
+        <p>Keep smiling even when it hurts ✨ .</p>
+      </div>
+      <!-- Add more memories as needed -->
+    </div>
+  </div>
+
+  <script src="landing.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>
